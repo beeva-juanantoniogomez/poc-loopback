@@ -1,0 +1,32 @@
+{
+  "name": "Artist",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fullname": {
+      "type": "string",
+      "required": true
+    },
+    "birthdate": {
+      "type": "date"
+    },
+    "country": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string",
+      "required": true,
+      "enum": ["male", "female"]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

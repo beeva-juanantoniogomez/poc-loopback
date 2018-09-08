@@ -37,5 +37,17 @@
   },
   "Message": {
     "dataSource": null
+  },
+  "Movie": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Country": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Artist": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }
