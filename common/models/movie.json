@@ -27,15 +27,58 @@
     },
     "rating_filmaffinity": {
       "type": "number"
-    },
-    "publisher": {
-      "type": "string",
-      "required": true,
-      "default": "unknown"
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "directors": {
+      "type": "hasAndBelongsToMany",
+      "model": "Artist",
+      "foreignKey": "movieId",
+      "through": "ArtistMovie",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "actors": {
+      "type": "hasAndBelongsToMany",
+      "model": "Artist",
+      "foreignKey": "movieId",
+      "through": "ArtistMovie",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "publisher": {
+      "type": "hasOne",
+      "model": "User",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "country": {
+      "type": "hasOne",
+      "model": "Country",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

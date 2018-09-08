@@ -13,20 +13,38 @@
     "birthdate": {
       "type": "date"
     },
-    "country": {
-      "type": "string"
-    },
     "photo": {
       "type": "string"
     },
     "gender": {
       "type": "string",
       "required": true,
-      "enum": ["male", "female"]
+      "enum": [
+        "male",
+        "female"
+      ]
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "movies": {
+      "type": "hasAndBelongsToMany",
+      "model": "Movie",
+      "foreignKey": "artistId",
+      "through": "MovieArtist",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "country": {
+      "type": "hasOne",
+      "model": "Country",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }
