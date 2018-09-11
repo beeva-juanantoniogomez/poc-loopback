@@ -37,7 +37,7 @@
       }
     },
     "country": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "Country",
       "foreignKey": "",
       "options": {

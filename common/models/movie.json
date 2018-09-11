@@ -19,9 +19,6 @@
     "year": {
       "type": "number"
     },
-    "country": {
-      "type": "string"
-    },
     "sinopsis": {
       "type": "string"
     },
@@ -50,7 +47,7 @@
       }
     },
     "publisher": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "User",
       "foreignKey": "",
       "options": {
@@ -58,7 +55,7 @@
       }
     },
     "country": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "Country",
       "foreignKey": "",
       "options": {
