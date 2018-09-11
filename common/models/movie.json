@@ -24,6 +24,10 @@
     },
     "rating_filmaffinity": {
       "type": "number"
+    },
+    "created": {
+      "type": "date",
+      "required": true
     }
   },
   "validations": [],
@@ -32,7 +36,7 @@
       "type": "hasAndBelongsToMany",
       "model": "Artist",
       "foreignKey": "movieId",
-      "through": "ArtistMovie",
+      "through": "MovieArtist",
       "options": {
         "nestRemoting": true
       }
@@ -41,7 +45,7 @@
       "type": "hasAndBelongsToMany",
       "model": "Artist",
       "foreignKey": "movieId",
-      "through": "ArtistMovie",
+      "through": "MovieArtist",
       "options": {
         "nestRemoting": true
       }
@@ -49,7 +53,7 @@
     "publisher": {
       "type": "belongsTo",
       "model": "User",
-      "foreignKey": "",
+      "foreignKey": "publisherId",
       "options": {
         "nestRemoting": true
       }
@@ -73,7 +77,20 @@
     {
       "accessType": "READ",
       "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
       "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
       "permission": "ALLOW"
     }
   ],
