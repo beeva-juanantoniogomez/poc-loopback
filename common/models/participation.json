@@ -1,43 +1,37 @@
 {
-  "name": "Artist",
+  "name": "Participation",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "fullname": {
-      "type": "string",
-      "required": true
-    },
-    "birthdate": {
-      "type": "date"
-    },
-    "photo": {
-      "type": "string"
-    },
-    "gender": {
+    "role": {
       "type": "string",
       "required": true,
       "enum": [
-        "male",
-        "female"
+        "actor",
+        "director"
       ]
     }
   },
+  "scopes": {
+    "actors": {"where": {"role": "actor"} },
+    "directors": {"where": {"role": "director"} }
+  },
   "validations": [],
   "relations": {
-    "country": {
+    "movie": {
       "type": "belongsTo",
-      "model": "Country",
-      "foreignKey": "",
+      "model": "Movie",
+      "foreignKey": "movieId",
       "options": {
         "nestRemoting": true
       }
     },
-    "participations": {
-      "type": "hasMany",
-      "model": "Participation",
+    "artist": {
+      "type": "belongsTo",
+      "model": "Artist",
       "foreignKey": "artistId",
       "options": {
         "nestRemoting": true

@@ -50,5 +50,9 @@
   "Artist": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Participation": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

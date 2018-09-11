@@ -32,20 +32,10 @@
   },
   "validations": [],
   "relations": {
-    "directors": {
-      "type": "hasAndBelongsToMany",
-      "model": "Artist",
-      "foreignKey": "movieId",
-      "through": "MovieArtist",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "actors": {
-      "type": "hasAndBelongsToMany",
-      "model": "Artist",
-      "foreignKey": "movieId",
-      "through": "MovieArtist",
+    "participants": {
+      "type": "hasMany",
+      "model": "Participation",
+      "foreignKey": "",
       "options": {
         "nestRemoting": true
       }

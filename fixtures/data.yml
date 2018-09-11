@@ -46,3 +46,14 @@ Artist:
     photo: "{{internet.avatar}}"
     gender: "(function() { return ['male', 'female'][Math.round(Math.random())];})()" # "male".."female"
     countryId: "(function() { return Math.round(Math.random()*242)+1;})()" # 1..243
+
+Participation:
+  as_actor{1..5}:
+    movieId: @movie.*
+    artistId: @artist.*
+    role: "actor"
+
+  as_director{1..5}:
+    movieId: @movie.*
+    artistId: @artist.*
+    role: "director"
