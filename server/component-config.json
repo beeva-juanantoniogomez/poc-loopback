@@ -9,6 +9,9 @@
     "autoLoad": false
   },
   "loopback-component-visualizer": {
-    "mountPath": "/visualize"
+    "mountPath": "/visualize-domain-model"
+  },
+  "loopback-component-model-diagram": {
+    "mountPath": "/visualize-diagram"
   }
 }
