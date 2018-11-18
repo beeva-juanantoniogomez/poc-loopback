@@ -19,7 +19,7 @@
     "loopback-component-explorer": "^6.0.0",
     "loopback-component-model-diagram": "^0.4.2",
     "loopback-component-visualizer": "^1.2.1",
-    "loopback-connector-mongodb": "^1.18.1",
+    "loopback-connector-mongodb": "^4.0.0",
     "loopback-connector-mysql": "^2.4.1",
     "loopback-fixtures": "0.0.14",
     "moment": "^2.22.2",
@@ -28,7 +28,8 @@
   },
   "devDependencies": {
     "eslint": "^3.17.1",
-    "eslint-config-loopback": "^8.0.0"
+    "eslint-config-loopback": "^8.0.0",
+    "merge": ">=1.2.1"
   },
   "repository": {
     "type": "",
