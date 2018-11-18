@@ -7,53 +7,53 @@ User:
     password: "password"
     emailVerified: true
   # This will generate 10 regular users:
-  user{1..10}:                    # <-- {1..n} : duplicate this line n times
+  user_regular{1..10}:               # <-- {1..n} : duplicate this line n times
     name: "{{name.firstName}}"
     email: "{{internet.email}}"
     username: "fakeuser{@}"   # <-- '{@}' will be remplaced by : 1, 2... n. We can use "{{internet.userName}}" too.
     password: "password"
     emailVerified: "{{random.boolean}}"
 
-Movie:
-  # This will generate 5 movies published by the user 'admin':
-  movie_admin{1..5}:
-    title: "{{lorem.words}}"
-    duration: "(function() { return Math.round(Math.random()*230)+70;})()" # 70...300
-    poster: "{{image.imageUrl}}"
-    year: "(function() { Math.round(Math.random()*115)+1900;})()" # 1900..2015
-    sinopsis: "{{lorem.sentence}}"
-    rating_filmaffinity: "(function() { return Math.round(Math.random()*4)+1;})()" # 1..5
-    publisherId: @user_admin
-    countryId: "(function() { return Math.round(Math.random()*242)+1;})()" # 1..243
-    created: "{{date.past}}"
-
-  # This will generate 20 movies randomly published by the 10 users groups:
-  movie{1..20}:
-    title: "{{lorem.words}}"
-    duration: "(function() { return Math.round(Math.random()*230)+70;})()" # 70...300
-    poster: "{{image.imageUrl}}"
-    year: "(function() { Math.round(Math.random()*115)+1900;})()" # 1900..2015
-    sinopsis: "{{lorem.sentence}}"
-    rating_filmaffinity: "(function() { return Math.round(Math.random()*4)+1;})()" # 1..5
-    publisherId: @user.*
-    countryId: "(function() { return Math.round(Math.random()*242)+1;})()" # 1..243
-    created: "{{date.past}}"
-
 Artist:
   artist{1..10}:
     fullname: "{{name.firstName}} {{name.lastName}}"
     birthdate: "{{date.past}}"
     photo: "{{internet.avatar}}"
-    gender: "(function() { return ['male', 'female'][Math.round(Math.random())];})()" # "male".."female"
-    countryId: "(function() { return Math.round(Math.random()*242)+1;})()" # 1..243
+    gender: '{{random.arrayElement(["male","female"])}}'
+    countryId: '{{random.number({"min":1,"max":243})}}'
+
+Movie:
+  # This will generate 5 movies published by the user 'admin':
+  movie_admin{1..5}:
+    title: "{{lorem.words}}"
+    duration: '{{random.number({"min":70,"max":180})}}'
+    poster: "{{image.imageUrl}}"
+    year: '{{random.number({"min":1940,"max":2015})}}'
+    sinopsis: "{{lorem.sentence}}"
+    rating_filmaffinity: '{{random.number({"min":1,"max":53})}}'
+    publisherId: @user_admin
+    countryId: '{{random.number({"min":1,"max":243})}}'
+    created: "{{date.past}}"
+
+  # This will generate 20 movies randomly published by the 10 users groups:
+  movie{1..20}:
+    title: "{{lorem.words}}"
+    duration: '{{random.number({"min":70,"max":280})}}'
+    poster: "{{image.imageUrl}}"
+    year: '{{random.number({"min":1940,"max":2015})}}'
+    sinopsis: "{{lorem.sentence}}"
+    rating_filmaffinity: '{{random.number({"min":1,"max":53})}}'
+    publisherId: @user_regular.*
+    countryId: '{{random.number({"min":1,"max":243})}}'
+    created: "{{date.past}}"
 
 Participation:
-  as_actor{1..5}:
+  as_actor{1..15}:
     movieId: @movie.*
     artistId: @artist.*
     role: "actor"
 
-  as_director{1..5}:
+  as_director{1..15}:
     movieId: @movie.*
     artistId: @artist.*
     role: "director"
