@@ -1,0 +1,30 @@
+{
+  "name": "Customer",
+  "description": "A customer (user)",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "password": {
+      "type": "string",
+      "required": true,
+      "min": 8,
+      "max": 30
+    }
+  },
+  "validations": [],
+  "relations": {
+    "publications": {
+      "type": "hasMany",
+      "model": "Movie",
+      "foreignKey": "publisherId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

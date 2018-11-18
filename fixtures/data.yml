@@ -1,13 +1,13 @@
-User:
-  # This will generate 1 user 'admin':
-  user_admin:
+Customer:
+  # This will generate 1 customer 'admin':
+  customer_admin:
     name: "Admin {{name.lastName}}"  # <-- {{name.lastName}} : random last name
     email: "admin@beevaffinity.com"
     username: "admin"
     password: "password"
     emailVerified: true
-  # This will generate 10 regular users:
-  user_regular{1..10}:               # <-- {1..n} : duplicate this line n times
+  # This will generate 10 regular customers:
+  customer_regular{1..10}:               # <-- {1..n} : duplicate this line n times
     name: "{{name.firstName}}"
     email: "{{internet.email}}"
     username: "fakeuser{@}"   # <-- '{@}' will be remplaced by : 1, 2... n. We can use "{{internet.userName}}" too.
@@ -23,7 +23,7 @@ Artist:
     countryId: '{{random.number({"min":1,"max":243})}}'
 
 Movie:
-  # This will generate 5 movies published by the user 'admin':
+  # This will generate 5 movies published by the customer 'admin':
   movie_admin{1..5}:
     title: "{{lorem.words}}"
     duration: '{{random.number({"min":70,"max":180})}}'
@@ -31,11 +31,11 @@ Movie:
     year: '{{random.number({"min":1940,"max":2015})}}'
     sinopsis: "{{lorem.sentence}}"
     rating_filmaffinity: '{{random.number({"min":1,"max":53})}}'
-    publisherId: @user_admin
+    publisherId: @customer_admin
     countryId: '{{random.number({"min":1,"max":243})}}'
     created: "{{date.past}}"
 
-  # This will generate 20 movies randomly published by the 10 users groups:
+  # This will generate 20 movies randomly published by the 10 customers groups:
   movie{1..20}:
     title: "{{lorem.words}}"
     duration: '{{random.number({"min":70,"max":280})}}'
@@ -43,7 +43,7 @@ Movie:
     year: '{{random.number({"min":1940,"max":2015})}}'
     sinopsis: "{{lorem.sentence}}"
     rating_filmaffinity: '{{random.number({"min":1,"max":53})}}'
-    publisherId: @user_regular.*
+    publisherId: @customer_regular.*
     countryId: '{{random.number({"min":1,"max":243})}}'
     created: "{{date.past}}"
 

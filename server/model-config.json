@@ -17,6 +17,13 @@
     "dataSource": "mysqlDs",
     "public": true
   },
+  "Customer": {
+    "dataSource": "mysqlDs",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
   "AccessToken": {
     "dataSource": "db",
     "public": false
