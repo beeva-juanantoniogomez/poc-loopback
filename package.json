@@ -21,6 +21,7 @@
     "loopback-component-visualizer": "^1.2.1",
     "loopback-connector-mongodb": "^4.0.0",
     "loopback-connector-mysql": "^2.4.1",
+    "loopback-connector-postgresql": "^3.5.0",
     "loopback-fixtures": "0.0.14",
     "moment": "^2.22.2",
     "serve-favicon": "^2.0.1",
