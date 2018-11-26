@@ -1,7 +1,7 @@
-{
+module.export = {
   "restApiRoot": "/api",
-  "host": "beevaffinity-loopback.herokuapp.com",
-  "port": 3000,
+  "host": process.env.HOST || "0.0.0.0",
+  "port": process.env.PORT || 3000,
   "remoting": {
     "context": false,
     "rest": {
@@ -19,4 +19,4 @@
     },
     "cors": false
   }
-}
+};

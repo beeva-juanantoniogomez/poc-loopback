@@ -1,9 +1,10 @@
 'use strict';
 
+const dsName = process.env.NODE_ENV === 'heroku' ? 'postgreDs' : 'mysqlDs';
 const {log} = console;
 
 module.exports = function(app, cb) {
-  const mysqlDs = app.dataSources.mysqlDs;
+  const dataSource = app.dataSources[dsName];
 
   function fireAutomigrate(err) {
     if (err) throw err;
@@ -20,11 +21,11 @@ module.exports = function(app, cb) {
     process.nextTick(cb);
   }
 
-  if (mysqlDs.connected) {
-    mysqlDs.automigrate(fireAutomigrate);
+  if (dataSource.connected) {
+    dataSource.automigrate(fireAutomigrate);
   } else {
-    mysqlDs.once('connected', function() {
-      mysqlDs.automigrate(fireAutomigrate);
+    dataSource.once('connected', function() {
+      dataSource.automigrate(fireAutomigrate);
     });
   }
 };
