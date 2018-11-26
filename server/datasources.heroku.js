@@ -3,9 +3,9 @@ module.exports = {
     name: 'db',
     connector: 'memory'
   },
-  postgreDs: {
+  mysqlDs: {
     url: process.env.DATABASE_URL,
-    name: 'postgreDs',
+    name: 'mysqlDs',
     debug: 'true',
     connector: 'postgresql'
   }
