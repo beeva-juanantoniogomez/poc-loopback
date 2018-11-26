@@ -2,7 +2,7 @@
 
 * [Slides](https://docs.google.com/presentation/d/1XpHplOGDTjvXEhItXBVCMv4AMJ_E3jbhWJvmMyRrh2Y/edit?usp=sharing)
 * [Code](https://github.com/beeva-juanantoniogomez/poc-loopback)
-* [Full document](https://docs.google.com/document/d/1ZyoT0F5L5MwyePmX_fi1V6coQLisCsVpWxujNnYJxgI/edit?usp=sharing)
+* [Full document](https://docs.google.com/document/d/14zi5AztQkbuEvbRkJ64lGP8XqFQUeeS2z-uDMnwOf4g/edit?usp=sharing)
 
 *Authors:* [Juan Antonio Gómez](https://github.com/beeva-juanantoniogomez)
 
