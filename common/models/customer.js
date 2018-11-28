@@ -51,4 +51,13 @@ module.exports = function(Customer) {
     }
   };
 
+  /**
+   * Example of Remote Method
+   */
+  Customer.hello = function(msg, cb) {
+    process.nextTick(function() {
+      cb(null, 'Sender says ' + (msg || 'hello') + ' to receiver');
+    });
+  };
+
 };
