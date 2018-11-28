@@ -15,7 +15,7 @@
   },
   "User": {
     "dataSource": "mysqlDs",
-    "public": true
+    "public": false
   },
   "Customer": {
     "dataSource": "mysqlDs",
@@ -42,9 +42,6 @@
   "Role": {
     "dataSource": "db",
     "public": false
-  },
-  "Message": {
-    "dataSource": null
   },
   "Movie": {
     "dataSource": "mysqlDs",

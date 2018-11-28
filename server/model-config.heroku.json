@@ -15,7 +15,7 @@
   },
   "User": {
     "dataSource": "postgreDs",
-    "public": true
+    "public": false
   },
   "Customer": {
     "dataSource": "postgreDs",
@@ -42,9 +42,6 @@
   "Role": {
     "dataSource": "db",
     "public": false
-  },
-  "Message": {
-    "dataSource": null
   },
   "Movie": {
     "dataSource": "postgreDs",
