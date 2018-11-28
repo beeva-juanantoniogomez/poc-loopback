@@ -1,20 +1,38 @@
 'use strict';
 
-var loopback = require('loopback');
-var boot = require('loopback-boot');
-
-var app = module.exports = loopback();
+const loopback = require('loopback');
+const boot = require('loopback-boot');
+const app = module.exports = loopback();
+const {log} = console;
 
 app.start = function() {
   // start the web server
   return app.listen(function() {
     app.emit('started');
-    var baseUrl = app.get('url').replace(/\/$/, '');
-    console.log('Web server listening at: %s', baseUrl);
+
+    const baseUrl = app.get('url').replace(/\/$/, '');
+
+    log('Web server listening at: %s', baseUrl);
+
     if (app.get('loopback-component-explorer')) {
-      var explorerPath = app.get('loopback-component-explorer').mountPath;
-      console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
+      const explorerPath = app.get('loopback-component-explorer').mountPath;
+
+      log('Browse your REST API at %s%s', baseUrl, explorerPath);
     }
+
+    if (app.get('loopback-component-visualizer')) {
+      const visualizerPath = app.get('loopback-component-visualizer').mountPath;
+
+      log('Browse the Component Visualizer at %s%s', baseUrl, visualizerPath);
+    }
+
+    if (app.get('loopback-component-model-diagram')) {
+      const modelDiagramPath = app.get('loopback-component-model-diagram').mountPath;
+
+      log('Browse the Model Diagram at %s%s', baseUrl, modelDiagramPath);
+    }
+
+    log('\n');
   });
 };
 
