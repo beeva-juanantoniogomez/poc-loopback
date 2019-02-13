@@ -1,10 +1,10 @@
 # PoC Loopback 3
 
 * [Slides](https://docs.google.com/presentation/d/1XpHplOGDTjvXEhItXBVCMv4AMJ_E3jbhWJvmMyRrh2Y/edit?usp=sharing)
-* [Code](https://github.com/beeva-juanantoniogomez/poc-loopback)
+* [Code](https://github.com/next-juanantoniogomez/poc-loopback)
 * [Full document](https://docs.google.com/document/d/14zi5AztQkbuEvbRkJ64lGP8XqFQUeeS2z-uDMnwOf4g/edit?usp=sharing)
 
-*Authors:* [Juan Antonio Gómez](https://github.com/beeva-juanantoniogomez)
+*Authors:* [Juan Antonio Gómez](https://github.com/next-juanantoniogomez)
 
 *Date:* 2018/11/30
 
@@ -21,7 +21,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone https://github.com/beeva-juanantoniogomez/poc-loopback.git`
+* `git clone https://github.com/next-juanantoniogomez/poc-loopback.git`
 * `cd poc-loopback`
 * `npm install`
 * Edit your [datastore config](server/datasources.development.js).
